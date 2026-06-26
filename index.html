@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justin Bauman — Newsletter</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f9f7f4;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 560px;
+      width: 100%;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .nav .logo {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.3px;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+
+    .nav .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav .nav-links a {
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+    }
+
+    .nav .nav-links a:hover { color: #1a1a1a; }
+
+    .hero {
+      margin-bottom: 48px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+    }
+
+    .hero p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: #444;
+      margin-bottom: 12px;
+    }
+
+    .bullets {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+
+    .bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .bullets li .check {
+      color: #1a1a1a;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      padding: 14px 16px;
+      font-size: 15px;
+      border: 1.5px solid #d1cdc7;
+      border-radius: 8px;
+      background: #fff;
+      color: #1a1a1a;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="email"]:focus {
+      border-color: #1a1a1a;
+    }
+
+    input::placeholder { color: #aaa; }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      letter-spacing: -0.2px;
+    }
+
+    button[type="submit"]:hover { background: #333; }
+    button[type="submit"]:active { transform: scale(0.99); }
+
+    .trust {
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #e5e1db;
+      margin: 48px 0;
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <nav class="nav">
+      <a href="#" class="logo">Justin Bauman</a>
+      <div class="nav-links">
+        <a href="#">Blog</a>
+        <a href="#">About Me</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <h1>Get AI-native fast<br>without the overwhelm.</h1>
+      <p>I write a weekly letter with practical AI tutorials and honest insights on building a lean business — for busy business owners and solopreneurs who don't have time to figure it all out themselves.</p>
+    </section>
+
+    <ul class="bullets">
+      <li><span class="check">✓</span> Practical AI tutorials to make you AI-native fast</li>
+      <li><span class="check">✓</span> Insights on building a lean, profitable business with AI</li>
+      <li><span class="check">✓</span> The real stuff — what's working, what isn't, and why</li>
+    </ul>
+
+    <form class="form-group" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="Your email address" required />
+      <button type="submit">Subscribe — it's free →</button>
+      <p class="trust">🔒 No spam. One email a week. Unsubscribe anytime.</p>
+    </form>
+
+    <hr class="divider" />
+
+    <footer class="footer">© Justin Bauman 2026</footer>
+
+  </div>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      alert("You're in! Check your inbox.");
+    }
+  </script>
+</body>
+</html>
