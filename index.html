@@ -93,14 +93,35 @@
       margin-top: 1px;
     }
 
-    .form-group {
+    .form-group,
+    .formkit-fields {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    input[type="email"] {
+    .formkit-alert {
+      list-style: none;
+      font-size: 14px;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .formkit-alert:empty { display: none; }
+
+    .formkit-alert-error {
+      color: #a33a22;
+    }
+
+    .formkit-field {
+      width: 100%;
+    }
+
+    input[type="email"],
+    .formkit-input {
       flex: 1;
+      width: 100%;
       padding: 14px 16px;
       font-size: 15px;
       border: 1.5px solid #d1cdc7;
@@ -111,13 +132,16 @@
       transition: border-color 0.15s;
     }
 
-    input[type="email"]:focus {
+    input[type="email"]:focus,
+    .formkit-input:focus {
       border-color: #1a1a1a;
     }
 
-    input::placeholder { color: #aaa; }
+    input::placeholder,
+    .formkit-input::placeholder { color: #aaa; }
 
-    button[type="submit"] {
+    button[type="submit"],
+    .formkit-submit {
       width: 100%;
       padding: 15px;
       background: #1a1a1a;
@@ -131,8 +155,18 @@
       letter-spacing: -0.2px;
     }
 
-    button[type="submit"]:hover { background: #333; }
-    button[type="submit"]:active { transform: scale(0.99); }
+    .formkit-submit span {
+      display: block;
+    }
+
+    .formkit-spinner {
+      display: none;
+    }
+
+    button[type="submit"]:hover,
+    .formkit-submit:hover { background: #333; }
+    button[type="submit"]:active,
+    .formkit-submit:active { transform: scale(0.99); }
 
     .trust {
       font-size: 13px;
@@ -176,23 +210,25 @@
       <li><span class="check">✓</span> The real stuff — what's working, what isn't, and why</li>
     </ul>
 
-    <form class="form-group" onsubmit="handleSubmit(event)">
-      <input type="email" placeholder="Your email address" required />
-      <button type="submit">Subscribe — it's free →</button>
-      <p class="trust">🔒 No spam. One email a week. Unsubscribe anytime.</p>
+    <form action="https://app.kit.com/forms/9615661/subscriptions" class="seva-form formkit-form form-group" method="post" data-sv-form="9615661" data-uid="d79f54614a" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;}},&quot;version&quot;:&quot;5&quot;}">
+      <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+      <div data-element="fields" data-stacked="true" class="seva-fields formkit-fields">
+        <div class="formkit-field">
+          <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Your email address" required type="email" />
+        </div>
+        <button data-element="submit" class="formkit-submit" type="submit">
+          <div class="formkit-spinner"><div></div><div></div><div></div></div>
+          <span>Subscribe — it's free →</span>
+        </button>
+      </div>
     </form>
+    <p class="trust">🔒 No spam. One email a week. Unsubscribe anytime.</p>
 
     <hr class="divider" />
 
     <footer class="footer">© Justin Bauman 2026</footer>
 
   </div>
-
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      alert("You're in! Check your inbox.");
-    }
-  </script>
+  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 </body>
 </html>
